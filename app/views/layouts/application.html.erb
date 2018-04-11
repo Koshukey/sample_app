@@ -12,9 +12,14 @@
    <!--  <link rel="stylesheet" media="all" href="/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload">となっていた  ?body＝１はrailsによって勝手に挿入されるものであるサーバー上で変更があった時にブラウザがcssを再度読み込むのに使用する -->
     <%= javascript_include_tag 'application',
                                'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>

@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+/*gem sprocketsによってrequire_tree などが機能するようになる
+require_treeによってapp/assets/stylesheetsディレクトリ (サブディレクトリを含む) 中のすべてのCSSファイルが、アプリケーションCSSに含まれるようになり、
+require_selfによってapplication.css自身もその対象になる
+*/
+
+/*このファイルをマニフェストファイルといい,assetをどのように一つのファイルにまとめるかをrailsに指示することができる
+*/
