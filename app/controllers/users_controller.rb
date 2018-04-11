@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     # なぜこうなるかといえばform_forで生成されるname属性がuser[email]
     # のようになっているから
     if @user.save
+      log_in @user
       flash[:success] = "Welcome to the Simple but difficult app!"
       #falshはrailsで用意されている変数
       redirect_to @user
