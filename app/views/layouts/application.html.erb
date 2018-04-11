@@ -18,8 +18,15 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
+      <!-- これによりデバッグ情報が表示されるようになる -->
+      <!-- 本番環境では情報が表示されないようにするためにif文以下を追加 -->
+      <!-- Railsというオブジェクトがありその属性の一つにenvがある -->
     </div>
   </body>
 </html>
