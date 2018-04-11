@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
    <!--  csrf_meta_tagsというrailsのメソッドによりクロスサイトリクエストフォージェリー を防ぐ -->
-    <%= stylesheet_link_tag    'application', media: 'all',
-                               'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application',{ media: 'all',
+                               'data-turbolinks-track': 'reload'} %>
+   <!--  ハッシュがメソッド呼び出しの最後の引数の時は波括弧を省略できる
+    stylesheet_link_tagはrailsのヘルパーメソッド
+    rubyは改行と空白を区別しない -->
+   <!--  <link rel="stylesheet" media="all" href="/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload">となっていた  ?body＝１はrailsによって勝手に挿入されるものであるサーバー上で変更があった時にブラウザがcssを再度読み込むのに使用する -->
     <%= javascript_include_tag 'application',
                                'data-turbolinks-track': 'reload' %>
   </head>
