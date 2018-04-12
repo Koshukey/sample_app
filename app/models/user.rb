@@ -12,7 +12,7 @@ class User < ApplicationRecord
   #validatesメソッドの引数がnameというカラムとpresenceというキーを持っているハッシュだと思えば良い
   has_secure_password
   #このrailsのメソッドはpassword_digestというカラムが存在するかつ,gem bcryptがある時のみ使用できる
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost?Bcrypt::Engine::MIN_COST:BCrypt::Engine.cost

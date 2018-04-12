@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     log_in user
     #log_inはsessions_helperで定義したヘルパーメソッド
     params[:session][:remeber_me] == '1' ? remember(user):forget(user)
-    redirect_to user
+    redirect_back_or user
     #redirext_to userをrailsはuser_url(user)と変換する
     else
     flash.now[:danger] = 'Invalid email/password combination'
