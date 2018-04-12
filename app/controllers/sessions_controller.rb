@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     #Active Recordが提供するUser.find_byメソッドとhas_secure_passwordが提供するauthenticateメソッドを使っている
     log_in user
     #log_inはsessions_helperで定義したヘルパーメソッド
+    params[:session][:remeber_me] == '1' ? remember(user):forget(user)
     redirect_to user
     #redirext_to userをrailsはuser_url(user)と変換する
     else
@@ -21,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to root_url
   end
 
